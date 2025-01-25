@@ -1,68 +1,219 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Varieties - Grocery Store</title>
+    <style>
+        /* Overall styling */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* Product section styling */
+        .product {
+            width: calc(33% - 20px); /* Adjust width as needed */
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product__photo {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .photo-container {
+            overflow: hidden;
+            border-radius: 5px;
+        }
+
+        .photo-main img {
+            width: 100%;
+            display: block;
+        }
+
+        .photo-album {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .product:hover .photo-album {
+            opacity: 1;
+        }
+
+        .photo-album ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .photo-album ul li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .photo-album ul li img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .price {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .variant {
+            margin-bottom: 15px;
+        }
+
+        .variant span {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .description {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .description ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        /* Add to cart button styling (for display only) */
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer; /* Simulate button behavior */
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
-
 <body>
-	<section class="product">
-		<div class="product__photo">
-			<div class="photo-container">
-				<div class="photo-main">
-					<div class="controls">
-						<i class="fa fa-share-alt"></i>
-						<i class="fa fa-heart-o"></i>
-					</div>
-					<img src="https://res.cloudinary.com/john-mantas/image/upload/v1537291846/codepen/delicious-apples/green-apple-with-slice.png"
-						alt="green apple slice">
-				</div>
-				<div class="photo-album">
-					<ul>
-						<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png"
-								alt="green apple"></li>
-						<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303532/codepen/delicious-apples/half-apple.png"
-								alt="half apple"></li>
-						<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303160/codepen/delicious-apples/green-apple-flipped.png"
-								alt="green apple"></li>
-						<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303708/codepen/delicious-apples/apple-top.png"
-								alt="apple top"></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="product__info">
-			<div class="title">
-				<h1>Delicious Apples</h1>
-				<span>CODE: 45999</span>
-			</div>
-			<div class="price">
-				R$ <span>7.93</span>
-			</div>
-			<div class="variant">
-				<h3>SELECT A COLOR</h3>
-				<ul>
-					<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png"
-							alt="green apple"></li>
-					<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302752/codepen/delicious-apples/yellow-apple.png"
-							alt="yellow apple"></li>
-					<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302427/codepen/delicious-apples/orange-apple.png"
-							alt="orange apple"></li>
-					<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png"
-							alt="red apple"></li>
-				</ul>
-			</div>
-			<div class="description">
-				
-			</div>
-		</div>
-	</section>
-</body>
+    <div class="container">
+        <div class="product">
+            <h2 class="product__title">Granny Smith Apple</h2>
+            <div class="product__photo">
+                <div class="photo-container">
+                    <img class="photo-main" src="images/granny-smith-apple.jpg" alt="Granny Smith Apple">
+                </div>
+                <div class="photo-album">
+                    <ul>
+                        <li><img src="images/granny-smith-apple-1.jpg" alt="Granny Smith Apple View 1"></li>
+                        <li><img src="images/granny-smith-apple-2.jpg" alt="Granny Smith Apple View 2"></li>
+                        <li><img src="images/granny-smith-apple-3.jpg" alt="Granny Smith Apple View 3"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="price">R$ 7.93</div>
+            <div class="variant">
+                <span>Color:</span> <img src="images/green-apple.png" alt="Green Apple">
+            </div>
+            <div class="description">
+                <h3>Benefits</h3>
+                <ul>
+                    <li>Apples are nutritious</li>
+                    <li>Apples may be good for weight loss</li>
+                    <li>Apples may be good for bone health</li>
+                    <li>They're linked to a lower risk of diabetes</li>
+                </ul>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
 
+        <div class="product">
+            <h2 class="product__title">Fuji Apple</h2>
+            <div class="product__photo">
+                <div class="photo-container">
+                    <img class="photo-main" src="images/fuji-apple.jpg" alt="Fuji Apple">
+                </div>
+                <div class="photo-album">
+                    <ul>
+                        <li><img src="images/fuji-apple-1.jpg" alt="Fuji Apple View 1"></li>
+                        <li><img src="images/fuji-apple-2.jpg" alt="Fuji Apple View 2"></li>
+                        <li><img src="images/fuji-apple-3.jpg" alt="Fuji Apple View 3"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="price">R$ 8.50</div>
+            <div class="variant">
+                <span>Color:</span> <img src="images/red-apple.png" alt="Red Apple">
+            </div>
+            <div class="description">
+                <h3>Benefits</h3>
+                <ul>
+                    <li>High in antioxidants</li>
+                    <li>May support heart health</li>
+                    <li>Good source of fiber</li>
+                </ul>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+
+        <div class="product">
+            <h2 class="product__title">Gala Apple</h2>
+            <div class="product__photo">
+                <div class="photo-container">
+                    <img class="photo-main" src="images/gala-apple.jpg" alt="Gala Apple">
+                </div>
+                <div class="photo-album">
+                    <ul>
+                        <li><img src="images/gala-apple-1.jpg" alt="Gala Apple View 1"></li>
+                        <li><img src="images/gala-apple-2.jpg" alt="Gala Apple View 2"></li>
+                        <li><img src="images/gala-apple-3.jpg" alt="Gala Apple View 3"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="price">R$ 7.20</div>
+            <div class="variant">
+                <span>Color:</span> <img src="images/yellow-apple.png" alt="Yellow Apple">
+            </div>
+            <div class="description">
+                <h3>Benefits</h3>
+                <ul>
+                    <li>Sweet and flavorful</li>
+                    <li>Good source of vitamin C</li>
+                    <li>May help boost immunity</li>
+                </ul>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+</body>
 </html>
