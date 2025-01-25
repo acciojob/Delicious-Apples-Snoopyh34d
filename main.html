@@ -1,20 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apple Varieties - Grocery Store</title>
     <style>
-        /* CSS styles here */
+        /* Overall styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        /* Product section styling */
+        .product {
+            width: calc(33% - 20px);
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product__title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .product__photo {
+            margin-bottom: 20px;
+        }
+
+        .photo-container {
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .photo-main {
+            width: 100%;
+            display: block;
+        }
+
+        .photo-album ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .photo-album ul li img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .photo-album ul li img:hover {
+            transform: scale(1.1);
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #007B00;
+        }
+
+        .variant ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .variant ul li img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            transition: border-color 0.2s;
+        }
+
+        .variant ul li img:hover {
+            border-color: #007B00;
+        }
+
+        .description h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .description ul {
+            list-style: disc;
+            padding-left: 20px;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 80%;
+        }
+
+        .add-to-cart {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #007B00;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="product">
             <h2 class="product__title">Delicious Apples</h2>
             <div class="product__photo">
                 <div class="photo-container">
-                    <img class="photo-main" src="images/apple.jpg" alt="Apple Image"> 
+                    <div class="photo-main">
+                        <img src="images/apple.jpg" alt="Apple Image">
+                    </div>
                 </div>
                 <div class="photo-album">
                     <ul>
@@ -24,7 +155,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="price">R$ 7.93</div>
+            <div class="price">$7.93</div>
             <div class="variant">
                 <ul>
                     <li><img src="images/green_apple.png" alt="Green Apple"></li>
@@ -36,13 +167,14 @@
                 <h3>BENEFITS</h3>
                 <ul>
                     <li>Apples are nutritious</li>
-                    <li>Apples may be good for weight loss</li>
-                    <li>Apples may be good for bone health</li>
-                    <li>They're linked to a lower risk of diabetes</li>
+                    <li>May help with weight loss</li>
+                    <li>Good for bone health</li>
+                    <li>Linked to lower diabetes risk</li>
                 </ul>
             </div>
             <button class="add-to-cart">ADD TO CART</button>
         </div>
     </div>
 </body>
+
 </html>
